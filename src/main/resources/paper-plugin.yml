@@ -1,0 +1,11 @@
+name: AllAdvancement
+version: '${version}'
+main: dev.matito.minecraft.allAdvancement.AllAdvancement
+api-version: '1.21.4'
+prefix: 'AllAdvancements'
+authors: [ Matito ]
+description: A Plugin for a all Advancements Challenge
+website: https://matito.dev
+
+permissions:
+  #todo add cmd perms

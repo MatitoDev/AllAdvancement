@@ -1,4 +1,4 @@
-package dev.matito.allAdvancement;
+package dev.matito.minecraft.allAdvancement;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
