@@ -1,0 +1,8 @@
+name: AllAdvancement
+version: '1.0-SNAPSHOT'
+main: dev.matito.allAdvancement.AllAdvancement
+api-version: '1.21'
+prefix: Replica
+authors: [ SlimeCloud Netrunner - Matito ]
+description: Replica Minigame
+website: https://discord.gg/slimecloud
