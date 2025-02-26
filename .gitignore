@@ -3,8 +3,5 @@
 .idea
 /run
 /build
-/.gradle
-/.idea
 *.lock
 *.bin
-/.gradle/
