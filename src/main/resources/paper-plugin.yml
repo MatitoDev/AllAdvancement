@@ -6,6 +6,12 @@ prefix: 'AllAdvancements'
 authors: [ Matito ]
 description: A Plugin for a all Advancements Challenge
 website: https://matito.dev
+dependencies:
+  server:
+    CommandAPI:
+      load: BEFORE
+      join-classpath: true
+      required: true
 
 permissions:
   #todo add cmd perms
