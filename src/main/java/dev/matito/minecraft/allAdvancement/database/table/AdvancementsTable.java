@@ -35,8 +35,8 @@ public interface AdvancementsTable extends Table<Advancements> {
         return getRowCount(Where.equals("player", player));
     }
 
-    default boolean removeAll() {
+    default int removeAll() {
         //not the cleanes way to clear the database
-        return delete(Where.isNotNull("advancement")) > 0;
+        return delete(Where.isNotNull("advancement"));
     }
 }

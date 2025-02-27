@@ -1,6 +1,7 @@
 package dev.matito.minecraft.allAdvancement;
 
 import de.mineking.databaseutils.DatabaseManager;
+import dev.matito.minecraft.allAdvancement.commands.ResetCommand;
 import dev.matito.minecraft.allAdvancement.commands.TestCommand;
 import dev.matito.minecraft.allAdvancement.database.PlayerTypeMapper;
 import dev.matito.minecraft.allAdvancement.database.object.Advancements;
@@ -8,6 +9,10 @@ import dev.matito.minecraft.allAdvancement.database.table.AdvancementsTable;
 import dev.matito.minecraft.allAdvancement.listener.AdvancementListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import lombok.Getter;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jdbi.v3.postgres.PostgresPlugin;
@@ -41,6 +46,7 @@ public final class AllAdvancement extends JavaPlugin {
 
     private void registerCommands() {
         TestCommand.register();
+        ResetCommand.register();
     }
 
     private void registerListeners() {
@@ -68,8 +74,17 @@ public final class AllAdvancement extends JavaPlugin {
         advancementsTable = AllAdvancement.getDatabase().getTable(Advancements.class, Advancements::new).name("advancements").table(AdvancementsTable.class).create();
     }
 
+    public static TextComponent getPrefix() {
+        return Component.empty()
+                .append(Component.text("[", NamedTextColor.DARK_GRAY)
+                        .append(Component.text("All", TextColor.color(0x508d98)))
+                        .append(Component.text("Advancements", TextColor.color(0x1b5a65)))
+                        .append(Component.text("] ", NamedTextColor.DARK_GRAY))
+                ).color(NamedTextColor.GRAY);
+    }
+
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        INSTANCE = null;
     }
 }
