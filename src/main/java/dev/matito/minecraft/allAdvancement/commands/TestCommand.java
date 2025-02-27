@@ -13,9 +13,6 @@ public class TestCommand {
         AdvancementsTable table = AllAdvancement.INSTANCE.getAdvancementsTable();
         sender.sendMessage(Component.text("all:" + table.getCount()));
         sender.sendMessage(Component.text("player:" + table.getCount((OfflinePlayer) sender)));
-        table.removeAll();
-        sender.sendMessage(Component.text("all:" + table.getCount()));
-        sender.sendMessage(Component.text("player:" + table.getCount((OfflinePlayer) sender)));
     }
 
     public static void register() {

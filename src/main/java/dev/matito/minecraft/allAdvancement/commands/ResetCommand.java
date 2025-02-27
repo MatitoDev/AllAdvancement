@@ -8,6 +8,7 @@ import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class ResetCommand {
     public static void reset(CommandSender sender) {
@@ -17,8 +18,10 @@ public class ResetCommand {
                             int i = AllAdvancement.INSTANCE.getAdvancementsTable().removeAll();
                             if (i <= 0) {
                                 sender.sendMessage(AllAdvancement.getPrefix().append(Component.text("Failed to remove all advancements!")));
+                                AllAdvancement.INSTANCE.getHud().update();
                                 return;
                             }
+                            AllAdvancement.INSTANCE.getHud().update();
                             sender.sendMessage(AllAdvancement.getPrefix().append(Component.text("Successfully removed " + i + " advancements!", NamedTextColor.YELLOW)));
 
                         })))

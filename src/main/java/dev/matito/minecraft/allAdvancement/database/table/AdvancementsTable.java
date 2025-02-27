@@ -14,10 +14,9 @@ import java.time.Instant;
 public interface AdvancementsTable extends Table<Advancements> {
 
     default boolean addAdvancement(OfflinePlayer player, Advancement advancement) {
-        AllAdvancement.INSTANCE.getLogger().info(PlainTextComponentSerializer.plainText().serialize(advancement.displayName()));
         try {
             insert(new Advancements(
-                    PlainTextComponentSerializer.plainText().serialize(advancement.displayName()),
+                    PlainTextComponentSerializer.plainText().serialize(advancement.getDisplay().title()),
                     player,
                     Instant.now()
             ));

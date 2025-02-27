@@ -7,6 +7,7 @@ import dev.matito.minecraft.allAdvancement.database.PlayerTypeMapper;
 import dev.matito.minecraft.allAdvancement.database.object.Advancements;
 import dev.matito.minecraft.allAdvancement.database.table.AdvancementsTable;
 import dev.matito.minecraft.allAdvancement.listener.AdvancementListener;
+import dev.matito.minecraft.allAdvancement.listener.Hud;
 import io.github.cdimascio.dotenv.Dotenv;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
@@ -21,11 +22,15 @@ import org.jetbrains.annotations.NotNull;
 @Getter
 public final class AllAdvancement extends JavaPlugin {
 
-    private DatabaseManager database;
+
     public static AllAdvancement INSTANCE;
     public final static Dotenv CREDENTIALS = Dotenv.configure().filename("credentials").load();
 
+    private DatabaseManager database;
+
     private AdvancementsTable advancementsTable;
+
+    public Hud hud;
 
     public static DatabaseManager getDatabase() {return INSTANCE.database;}
 
@@ -33,6 +38,7 @@ public final class AllAdvancement extends JavaPlugin {
     public void onLoad() {
         if (INSTANCE != null) throw new RuntimeException("Plugin already loaded");
         INSTANCE = this;
+        this.hud = new Hud();
 
         registerCommands();
     }
@@ -41,7 +47,7 @@ public final class AllAdvancement extends JavaPlugin {
     public void onEnable() {
         registerListeners();
         setupDatabase();
-
+        hud.update();
     }
 
     private void registerCommands() {
@@ -51,6 +57,7 @@ public final class AllAdvancement extends JavaPlugin {
 
     private void registerListeners() {
         registerEvent(new AdvancementListener());
+        registerEvent(hud);
     }
 
     private void registerEvent(@NotNull Listener listener) {
