@@ -3,13 +3,13 @@ package dev.matito.minecraft.allAdvancement.database.table;
 import de.mineking.databaseutils.Table;
 import de.mineking.databaseutils.Where;
 import de.mineking.databaseutils.exception.ConflictException;
-import dev.matito.minecraft.allAdvancement.AllAdvancement;
 import dev.matito.minecraft.allAdvancement.database.object.Advancements;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.advancement.Advancement;
 
 import java.time.Instant;
+import java.util.Optional;
 
 public interface AdvancementsTable extends Table<Advancements> {
 
@@ -24,6 +24,10 @@ public interface AdvancementsTable extends Table<Advancements> {
         } catch (ConflictException e) {
             return false;
         }
+    }
+
+    default Optional<Advancements> getAdvancement(Advancement advancement) {
+        return selectOne(Where.equals("advancement", PlainTextComponentSerializer.plainText().serialize(advancement.getDisplay().title())));
     }
 
     default int getCount() {
