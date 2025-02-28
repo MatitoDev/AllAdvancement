@@ -14,4 +14,6 @@ dependencies:
       required: true
 
 permissions:
-  #todo add cmd perms
+  alladvancements.reset:
+    description: 'Reset All Advancements from players and database'
+    default: false
