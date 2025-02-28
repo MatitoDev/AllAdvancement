@@ -13,7 +13,6 @@ import org.jetbrains.annotations.NotNull;
 public class Hud implements Listener {
     private BossBar bossBar;
     private final int MAX_ADVANCEMENTS = 117;
-    //todo make it putiful with unicodes
     public Hud() {
         this.bossBar = BossBar.bossBar(Component.text("0 / " + MAX_ADVANCEMENTS),
                         0f / MAX_ADVANCEMENTS,
