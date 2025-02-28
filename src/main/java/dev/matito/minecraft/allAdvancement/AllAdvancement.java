@@ -2,7 +2,6 @@ package dev.matito.minecraft.allAdvancement;
 
 import de.mineking.databaseutils.DatabaseManager;
 import dev.matito.minecraft.allAdvancement.commands.ResetCommand;
-import dev.matito.minecraft.allAdvancement.commands.TestCommand;
 import dev.matito.minecraft.allAdvancement.database.PlayerTypeMapper;
 import dev.matito.minecraft.allAdvancement.database.object.Advancements;
 import dev.matito.minecraft.allAdvancement.database.table.AdvancementsTable;
@@ -51,7 +50,6 @@ public final class AllAdvancement extends JavaPlugin {
     }
 
     private void registerCommands() {
-        TestCommand.register();
         ResetCommand.register();
     }
 
