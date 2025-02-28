@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.advancement.Advancement;
-import org.jetbrains.annotations.NotNull;
 
 import java.time.Instant;
 

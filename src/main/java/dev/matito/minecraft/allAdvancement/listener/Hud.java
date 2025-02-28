@@ -8,16 +8,16 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerAdvancementDoneEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.jetbrains.annotations.NotNull;
 
 public class Hud implements Listener {
     private BossBar bossBar;
     private final int MAX_ADVANCEMENTS = 117;
+
     public Hud() {
         this.bossBar = BossBar.bossBar(Component.text("0 / " + MAX_ADVANCEMENTS),
-                        0f / MAX_ADVANCEMENTS,
-                        BossBar.Color.BLUE,
-                        BossBar.Overlay.PROGRESS);
+                0f / MAX_ADVANCEMENTS,
+                BossBar.Color.BLUE,
+                BossBar.Overlay.PROGRESS);
     }
 
     public void update() {

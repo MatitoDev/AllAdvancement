@@ -31,7 +31,9 @@ public final class AllAdvancement extends JavaPlugin {
 
     public Hud hud;
 
-    public static DatabaseManager getDatabase() {return INSTANCE.database;}
+    public static DatabaseManager getDatabase() {
+        return INSTANCE.database;
+    }
 
     @Override
     public void onLoad() {
