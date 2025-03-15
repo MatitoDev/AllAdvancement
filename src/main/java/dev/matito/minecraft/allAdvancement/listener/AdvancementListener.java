@@ -29,7 +29,7 @@ public class AdvancementListener implements Listener {
         table.getAdvancement(event.getAdvancement())
                 .ifPresentOrElse(advancement -> {
                             event.getPlayer().sendMessage(AllAdvancement.getPrefix().append(Component.text("Das Advancement \"" + advancement.getAdvancement() + "\" wurde bereits von ")
-                                    .append(Component.text(event.getPlayer().getName(), TextColor.color(0x508d98)).hoverEvent(HoverEvent.showText(Component.text("Der Spieler hat bereits " + table.getCount(event.getPlayer()) + " Advancements gemacht!", NamedTextColor.GREEN))))
+                                    .append(Component.text(advancement.getPlayer().getName(), TextColor.color(0x508d98)).hoverEvent(HoverEvent.showText(Component.text("Der Spieler hat bereits " + table.getCount(event.getPlayer()) + " Advancements gemacht!", NamedTextColor.GREEN))))
                                     .append(Component.text(" erledigt!", NamedTextColor.GRAY))
                             ));
                         },
